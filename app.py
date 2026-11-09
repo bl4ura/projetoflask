@@ -7,9 +7,9 @@ app = Flask(__name__)
 def index():
     return render_template("index.html", titulo="Minha primeira aplicação Flask")
 
-@app.route("/")
-def index():
-    return render_template("sobre.html", titulo="Minha primeira aplicação Flask")
+@app.route("/sobre")
+def sobre():
+    return render_template("sobre.html")
 
 
 if __name__ == "__main__":
