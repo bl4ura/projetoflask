@@ -27,6 +27,10 @@ def disciplinas():
   lista = ["Programação Web", "Banco de Dados", "Redes", "Inglês Técnico"]
   return render_template("disciplinas.html", disciplinas=lista)
 
+@app.route("/tabuada/<int:numero>")
+def tabuada(numero):
+    return render_template("tabuada.html", numero=numero)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
