@@ -1,20 +1,15 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Programação Web</title>
-</head>
-<body>
-    <main>
-        <h1>Projeto Flask</h1>
-        <p>Ambiente pronto para começar a atividade de Programação Web com Python e Flask.</p>
-        <p>Edite <code>app.py</code> e este arquivo para praticar.</p>
-        Nome dos integrantes: 
-        <ul>
-            <li>Laura Beatriz Barbosa Freitas</li>
-            <li>Jullyana Sophia da Silva Magalhães</li>
-        </ul>    
-    </main>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Programação Web{% endblock %}
+
+{% block content %}
+    <h1>Projeto Flask</h1>
+    <p>Ambiente pronto para começar a atividade de Programação Web com Python e Flask.</p>
+    <p>Edite <code>app.py</code> e este arquivo para praticar.</p>
+    
+    <p>Nome dos integrantes:</p>
+    <ul>
+        <li>Laura Beatriz Barbosa Freitas</li>
+        <li>Jullyana Sophia da Silva Magalhães</li>
+    </ul>
+{% endblock %}
