@@ -22,6 +22,11 @@ def idade(idade):
 def ola(nome):
     return render_template("ola.html", nome=nome)
 
+@app.route("/disciplinas")
+def disciplinas():
+  lista = ["Programação Web", "Banco de Dados", "Redes", "Inglês Técnico"]
+  return render_template("disciplinas.html", disciplinas=lista)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
