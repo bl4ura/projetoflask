@@ -31,6 +31,10 @@ def disciplinas():
 def tabuada(numero):
     return render_template("tabuada.html", numero=numero)
 
+@app.route("/tabuadas")
+def tabuadas():
+    return render_template("tabuadas.html")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
