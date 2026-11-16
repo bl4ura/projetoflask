@@ -1,10 +1,10 @@
 from flask import Flask, render_template
 import aluno_service
+import curso_service
+
 
 
 app = Flask(__name__)
-
-import aluno_service
 alunos = aluno_service.listar()
 
 @app.route("/")
@@ -43,6 +43,13 @@ def tabuadas():
 def listar_alunos():
     alunos = aluno_service.listar()
     return render_template("aluno/listar.html", alunos=alunos)
+
+
+@app.route("/curso/")
+def listar_cursos():
+    cursos = curso_service.listar()
+    return render_template("curso/cursolistar.html", cursos=cursos)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
