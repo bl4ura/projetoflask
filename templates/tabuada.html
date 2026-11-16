@@ -12,7 +12,16 @@
         <li>{{ numero }} x {{ i }} = {{ numero * i }}</li>
     {% endfor %}
     </ul>
+    <p>
+    {% if n > 1 %}
+        <a href="/tabuada/{{ n - 1 }}"> Anterior</a>
+    {% endif %}
+    {% if n < 10 %}
+        <a href="/tabuada/{{ n + 1 }}"> Próxima ></a>
+    {% endif %}
 
+   
+    </p>
     <li><a href="/tabuadas"> Ver todas as tabuadas</a></li>
     <a href="/">Voltar ao início</a>
     
