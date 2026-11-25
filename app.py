@@ -68,6 +68,21 @@ def listar_cursos():
     cursos = curso_service.listar()
     return render_template("curso/cursolistar.html", cursos=cursos)
 
+@app.route("/curso/novo")
+def novo_curso():
+    return render_template("curso/cursoform.html", cursos=None)
+
+@app.route("/curso/salvar", methods=["POST"])
+def salvar_curso():
+    id_curso = request.form["id"]
+    nome = request.form["nome"]
+    area = request.form["area"]
+
+    if id_curso == "":
+        curso_service.cadastrar(nome, area)
+
+    return redirect("/curso/")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
