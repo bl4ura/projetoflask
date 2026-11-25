@@ -70,7 +70,7 @@ def listar_cursos():
 
 @app.route("/curso/novo")
 def novo_curso():
-    return render_template("curso/cursoform.html", cursos=None)
+    return render_template("curso/cursoform.html", curso=None)
 
 @app.route("/curso/salvar", methods=["POST"])
 def salvar_curso():

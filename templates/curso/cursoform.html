@@ -19,7 +19,7 @@
             <form action="/curso/salvar" method="post">
 
               <!-- id: vazio no cadastro; preenchido na edição (próxima aula) -->
-              <input type="hidden" name="id" value="{{ curso.id if cursoelse '' }}">
+              <input type="hidden" name="id" value="{{ curso.id if curso else '' }}">
 			  
 			  
 
