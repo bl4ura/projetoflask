@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 import aluno_service
 import curso_service
 
@@ -43,6 +43,24 @@ def tabuadas():
 def listar_alunos():
     alunos = aluno_service.listar()
     return render_template("aluno/listar.html", alunos=alunos)
+
+
+@app.route("/aluno/novo")
+def novo_aluno():
+    return render_template("aluno/form.html", alunos=None)
+
+@app.route("/aluno/salvar", methods=["POST"])
+def salvar_aluno():
+    id_aluno = request.form["id"]
+    nome = request.form["nome"]
+    telefone = request.form["telefone"]
+    cidade = request.form["cidade"]
+
+    if id_aluno == "":
+        aluno_service.cadastrar(nome, telefone, cidade)
+
+    return redirect("/aluno/")
+
 
 
 @app.route("/curso/")

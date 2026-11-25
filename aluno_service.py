@@ -6,3 +6,19 @@ lista_aluno = [
 
 def listar():
     return lista_aluno
+
+
+
+def cadastrar(nome, telefone, cidade):
+    # Sem banco de dados: o novo id é o id do último aluno + 1
+    if len(lista_aluno) == 0:
+        novo_id = 1
+    else:
+        ultimo = lista_aluno[-1]
+        novo_id = ultimo["id"] + 1
+
+
+    aluno = {"id": novo_id, "nome": nome,
+             "telefone": telefone, "cidade": cidade}
+    lista_aluno.append(aluno)
+    return aluno
