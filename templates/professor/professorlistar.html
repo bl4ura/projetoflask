@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Professor</title>
+  <!-- Bootstrap: o visual vem pronto, pela internet -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container py-4">
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="h3 mb-0">Professor</h1>
+      <div>
+        <a href="/professor/novo" class="btn btn-primary btn-sm">Novo professor/a>
+        <a href="/" class="btn btn-outline-secondary btn-sm">Voltar ao início</a>
+      </div> 
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-body p-0">
+        <table class="table table-striped table-hover mb-0">
+          <thead class="table-dark">
+            <tr><th>Id</th><th>Nome</th><th>E-mail</th><th>Titulação</th></tr>
+          </thead>
+          <tbody>
+            {% for professor in professor %}
+            <tr>
+              <td>{{ professor.id }}</td>
+              <td>{{ professor.nome }}</td>
+              <td>{{ curso.email }}</td>
+              <td>{{ curso.titulacao }}</td>
+
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="4" class="text-center">Nenhum professor cadastrado.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="text-muted mt-2">Total: {{ professor|length }} professor(es)</p>
+
+  </div>
+</body>
+</html>

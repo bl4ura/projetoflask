@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import aluno_service
 import curso_service
+import professor_service
 
 
 
@@ -82,6 +83,28 @@ def salvar_curso():
         curso_service.cadastrar(nome, area)
 
     return redirect("/curso/")
+
+@app.route("/professor/")
+def listar_professores():
+    professores = professor_service.listar()
+    return render_template("professor/professorlistar.html", professores=professores)
+
+@app.route("/professor/novo")
+def novo_professor():
+    return render_template("professores/professoresform.html", professor=None)
+
+@app.route("/professor/salvar", methods=["POST"])
+def salvar_professor():
+    id_professor = request.form["id"]
+    nome = request.form["nome"]
+    email = request.form["email"]
+    titulacao = request.form["titulacao"]
+
+
+    if id_professor == "":
+        professor_service.cadastrar(nome, email,titulacao)
+
+    return redirect("/professor/")
 
 
 if __name__ == "__main__":
