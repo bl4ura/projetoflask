@@ -91,7 +91,7 @@ def listar_professores():
 
 @app.route("/professor/novo")
 def novo_professor():
-    return render_template("professores/professoresform.html", professor=None)
+    return render_template("professores/professoresform.html", professores=None)
 
 @app.route("/professor/salvar", methods=["POST"])
 def salvar_professor():
