@@ -122,12 +122,12 @@ def novo_disciplina():
 def salvar_disciplina():
     id_disciplina = request.form["id"]
     nome = request.form["nome"]
-    email = request.form["email"]
-    titulacao = request.form["titulacao"]
+    cargahoraria = request.form["cargahoraria"]
+    semestre = request.form["semestre"]
 
 
     if id_disciplina == "":
-        disciplina_service.cadastrar(nome, email,titulacao)
+        disciplina_service.cadastrar(nome, cargahoraria, semestre)
 
     return redirect("/disciplina/")
 
