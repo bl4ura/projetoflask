@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect
 import aluno_service
 import curso_service
 import professor_service
+import disciplina_service
+
 
 
 
@@ -102,9 +104,32 @@ def salvar_professor():
 
 
     if id_professor == "":
-        professor_service.cadastrar(nome, email,titulacao)
+        professor_service.cadastrar(nome, email, titulacao)
 
     return redirect("/professor/")
+
+
+@app.route("/disciplina/")
+def listar_disciplinas():
+    disciplinas = disciplina_service.listar()
+    return render_template("disciplina/disciplinalistar.html", disciplinas=disciplinas)
+
+@app.route("/disciplina/novo")
+def novo_disciplina():
+    return render_template("disciplina/disciplinaform.html", disciplinas=None)
+
+@app.route("/disciplina/salvar", methods=["POST"])
+def salvar_disciplina():
+    id_disciplina = request.form["id"]
+    nome = request.form["nome"]
+    email = request.form["email"]
+    titulacao = request.form["titulacao"]
+
+
+    if id_disciplina == "":
+        disciplina_service.cadastrar(nome, email,titulacao)
+
+    return redirect("/disciplina/")
 
 
 if __name__ == "__main__":
